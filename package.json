@@ -1,0 +1,34 @@
+{
+  "name": "xcelsz-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && npx tsc",
+    "prestart": "npm run build",
+    "start:prod": "node ./dist/index.js",
+    "start:dev": "concurrently \"npx tsc -w\" \"nodemon  ./dist/index.js \"",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "test": "jest --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "if-env": "^1.0.4",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.5.46",
+    "morgan": "^1.10.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9"
+  }
+}
